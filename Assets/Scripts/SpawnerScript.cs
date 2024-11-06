@@ -6,9 +6,8 @@ public class SpawnerScript : MonoBehaviour
 {
     public float spawnCooldown = 5.0f;
     public int maxQuantity = 10;
-    public int total = 10;
+    public int total = 0;
     public GameObject sideline;
-    public Transform[] positions;
     private bool isAvailble = true;
     // Start is called before the first frame update
     void Start()
@@ -21,7 +20,8 @@ public class SpawnerScript : MonoBehaviour
     {
         if(total < maxQuantity && isAvailble)
         {
-            Instantiate(sideline, positions[Random.Range(0, positions.Length)].position, Quaternion.identity);
+            Vector3 spwanPosition = new Vector3(Random.Range(-10, 11), 0f, Random.Range(-8, 9));
+            Instantiate(sideline, spwanPosition, Quaternion.identity);
             StartCoroutine(startCooldown());
             total++;
         }
