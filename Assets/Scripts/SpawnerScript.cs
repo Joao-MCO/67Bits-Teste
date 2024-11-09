@@ -20,7 +20,7 @@ public class SpawnerScript : MonoBehaviour
     {
         if(total < maxQuantity && isAvailble)
         {
-            Vector3 spwanPosition = new Vector3(Random.Range(-10, 11), 0f, Random.Range(-8, 9));
+            Vector3 spwanPosition = new Vector3(Random.Range(-10, 11), 4f, Random.Range(-8, 9));
             Instantiate(sideline, spwanPosition, Quaternion.identity);
             StartCoroutine(startCooldown());
             total++;
