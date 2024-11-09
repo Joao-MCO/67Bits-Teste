@@ -9,7 +9,7 @@ public class CollectSpawn : MonoBehaviour
     public GameObject[] collections;
     private void OnCollisionEnter(Collision collision)
     {
-
+        Debug.Log(collision.gameObject.name);
         if(collision.gameObject.layer == 7 && collectedTotal < GameController.Instance.maxCollected)
         {
             Destroy(collision.gameObject);
