@@ -7,15 +7,31 @@ public class CollectSpawn : MonoBehaviour
     public SpawnerScript ss;
     public int collectedTotal = 0;
     public GameObject[] collections;
-    private void OnCollisionEnter(Collision collision)
+    private Animator animator;
+    private Collider col;
+
+    private void Start()
     {
-        Debug.Log(collision.gameObject.name);
-        if(collision.gameObject.layer == 7 && collectedTotal < GameController.Instance.maxCollected)
+        col = null; 
+        animator = GetComponent<Animator>();
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 7)
         {
-            Destroy(collision.gameObject);
+            animator.SetTrigger("punch");
+            col = other;
+        }
+    }
+
+    public void Management()
+    {
+        if (col != null && col.gameObject.layer == 7)
+        {
             ss.total--;
-            collections[collectedTotal].SetActive(true);
             collectedTotal++;
+            Destroy(col.gameObject);
+            collections[collectedTotal].SetActive(true);
         }
     }
 }
