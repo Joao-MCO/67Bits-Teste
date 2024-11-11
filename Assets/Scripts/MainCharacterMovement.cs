@@ -27,6 +27,7 @@ public class MainCharacterMovement : MonoBehaviour
         animator.SetBool("isWalking", false);
         objectVelocities = new List<Vector3>(rbs.Length);
 
+
         // Inicializa a velocidade de cada objeto na pilha como zero
         for (int i = 0; i < rbs.Length; i++)
         {
@@ -39,6 +40,7 @@ public class MainCharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
         // Get Player Input
         horizontalInput = joystick.Horizontal;
         verticalInput = joystick.Vertical;

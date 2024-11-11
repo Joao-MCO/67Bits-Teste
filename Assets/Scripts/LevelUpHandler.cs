@@ -10,7 +10,7 @@ public class LevelUpHandler : MonoBehaviour
     public ChangeColor main;
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.layer == 3 && GameController.Instance.collectionLevel < 5 && GameController.Instance.money >= moneyUpdate)
+        if (other.gameObject.layer == 3 && GameController.Instance.collectionLevel < 3 && GameController.Instance.money >= moneyUpdate)
         {
             GameController.Instance.collectionLevel += 1;
             GameController.Instance.maxCollected += 1;
